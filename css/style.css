@@ -1,0 +1,327 @@
+:root {
+  --fuenteHeading: "pt sans", sans-serif;
+  --fuenteParrafos: "open sans", sans-serif;
+
+  --primario: #784d3c;
+  --gris: #e1e1e1;
+  --blanco: #ffffff;
+  --negro: #000000;
+}
+html {
+  box-sizing: border-box; /*me permite que no me afecte el ancho de los elementos*/
+  font-size: 62.5%; /* 1 rem, es igual a 10 pixeles*/
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit; /* controla cómo se calculan las dimensiones de un elemento, específicamente cómo se incluyen el padding y el borde en el cálculo del ancho y alto total del elemento.*/
+}
+body {
+  font-family: var(
+    --fuenteParrafos
+  ); /* Permite definir uno o varios tipos de fuentes, así como fuentes de reserva en caso de que la fuente principal no esté disponible.*/
+  font-size: 1.6rem; /*se utiliza para definir el tamaño de la fuente de un elemento de texto.*/
+  line-height: 2; /*este es un interlineado que me permite crear un espacio entre renglones*/
+}
+
+/*globales*/
+.contenedor {
+  max-width: 120rem; /*se utiliza para establecer el ancho máximo que puede tener un elemento*/
+  width: 90%; /*se utiliza para establecer el ancho de un elemento. Define cuán ancho será el elemento en relación a su contenedor o espacio disponible.*/ /*si no lo tuviera la letras y los botones se iria hasta las orillas de la pagina*/
+  width: min( 90%, 120rem ); /*esto es una nueva propiedadad de css"practicamente es coiendo ambas propiedades de  max-width: 120rem; y  width: 90%; y las esta convirtiendo en un solo codigo "*/
+  margin: 0 auto; /*me permite centrar el contenido horizontal*/
+}
+a {
+  text-decoration: none; /*se utiliza para aplicar efectos decorativos al texto. Puede controlar la aparición de subrayados, tachados, líneas sobre el texto, entre otros.*/
+}
+h1,h2,h3,h4 {
+  font-family: var(--fuenteHeading); /*esta fuente la vamos a utilizar para todos los heiding*/
+}
+h1 {
+  font-size: 4.8rem; /*tamaño de la fuente*/
+}
+h2 {
+  font-size: 3.4rem;
+}
+h3 {
+  font-size: 4rem;
+}
+h4 {
+  font-size: 2.5rem;
+}
+img {
+  max-width: 100%; /*me permite darle un ancho ala imagen*/
+}
+/*utilidades*/
+.no-margin {
+  margin: 0;/*me permite eliminarle el margen*/
+  margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  font-size: 2.5rem;
+  
+}
+.no-padding {
+  padding: 0 px; /* se refiere a que no se ha aplicado ningún espacio interior adicional al contenido del elemento*/
+}
+.centrar-texto {
+  text-align: center; /*podemos centrar el texto*/
+}
+
+/*Header*/
+.header {
+  background-image: url(../img/banner.webp); /*background-image: se agrega la imagen*/ /* url(..) se busca la imagen */
+  height: 40rem; /*se define la altura de la imagen*/
+  background-size: cover; /*se utiliza para redimensionar una imagen de fondo de manera que cubra completamente el contenedor del elemento, manteniendo sus proporciones originales*/
+  background-repeat: no-repeat; /* se utiliza para evitar que una imagen de fondo se repita*/
+  background-position: center center; /*me permite posisionar la imagen que se meueve al lado que nesecite, doble center es centrarla horizontal y verticalmente*/
+}
+.header__texto {
+  text-align: center; /*me ´permite centrar el texto*/
+  color: var(
+    --blanco
+  ); /*es el color que va allevar el texto "blof de caffe, aprende de los expertos con las mejores recetas y consejos"*/
+  margin-top: 5rem; /*me permite tener una separacion entre "blog de caffe, con el marco de la imagen"*/
+}
+@media (min-width: 768px) {
+  .header__texto {
+    margin-top: 15rem; /*crea una separacion entre el bordo de la imagen y blog de caffe con consejos y cursos*/
+  }
+}
+.barra {
+  /*hace parte ala barra "blog de caffe" de la parte superior de la pagina*/
+  padding-top: 6rem; /*me permite crear una separacion entre "blog de caffe" que esta en la parte superior" y la parte superior de la pagina web */
+}
+@media (min-width: 768px) {
+  .barra {
+    display: flex; /*me permite posicionarlos unos frente del otro*/ /*contiene bloque de barra y bloque de navegacion*/
+    justify-content: space-between; /*justify-content: "me permite alinearlo horizontalmente"*/ /*space-between, me permite posiscionarlo de derecha a izquierda*/
+    align-items: center; /*me permite alinear horizontalmente*/
+  }
+}
+.logo {
+  color: var(--blanco); /*color de "blogDescaffeinado"*/
+}
+.logo__nombre {
+  font-weight: 500; /*me permite darle tamaño ala letra "decaffeinado"*/
+}
+.logo__bold {
+  font-weight: 600; /*me permite darle tamaño ala letra "blog"*/
+}
+/*navegacion*/
+@media (min-width: 768px) {
+  .navegacion {
+    display: flex;
+    gap: 2rem; /*me permite crear una separacion entre  "nostros,cursos,contacto "*/
+  }
+}
+
+.navegacion__enlace {
+  display: block; /*me permite posicionar los elementos "nostros,cursos,contacto" uno debajo del otro*/
+  text-align: center; /*me permite pocicinarlo centrado ala imagen*/
+  font-size: 2.8rem; /*me permite garandar la letra "nostros,cursos,contacto"*/
+  color: var(--blanco); /*color del texto"nosotros,cursos,contacto"*/
+}
+@media (min-width: 768px) {
+  .contenido-principal {
+    display: grid; /*me permite posicionar los elementos "nuestro blo,cuentros cursos y talleres"*/
+    grid-template-columns: 2fr 1fr; /*Este código distribuirá el contenido en dos columnas, donde la primera será más ancha que la segunda.*/
+    column-gap: 4rem; /*se utiliza para definir el espacio entre las columnas en un contenedor de diseño de columnas, como los que se crean con CSS Grid o el modelo de columnas de CSS.*/
+  }
+}
+
+.entrada {
+  border-bottom: 1px solid var(--gris); /*para tener encuenta lo que puede hacer " border-bottom: 1px solid var(--gris);" vamos a cambiar el color de "gris a red "rojo""*/ /*me permite agregarle un bordo gris*/
+  margin-bottom: 2rem; /**me permite crear una separacion de bordo de la imagen con el parrafo de arriba*/
+}
+.entrada :last-of-type {
+  /*"last-of-type" este es un selector  Los selectores permiten especificar qué elementos se deben estilizar, y pueden ser simples o complejos*/
+  border: none; /*se utiliza para eliminar cualquier borde de un elemento */
+  margin-bottom: 0; /*me permite eliminar la linea en la parte inferior la imagen*/
+}
+.boton {
+  display: block; /*ocupa todo el ancho disponible de su contenedor, lo que significa que comenzará en una nueva línea y empujará otros elementos hacia abajo.*/
+  font-family: var(--fuenteHeading); /*estilo de la letra "leer entrada"*/
+  color: var(--blanco); /*color de las laetras "leer entrega"*/
+  text-align: center; /*me permite alnearlo de forma horizontalmente*/
+  padding: 1rem 3rem; /*" se utiliza para crear espacio interno alrededor del contenido de un elemento, dentro de su borde. 1rem: Se aplica al padding superior (arriba) y al padding inferior (abajo).
+  3rem: Se aplica al padding izquierdo y al padding derecho.
+  Esto significa que el espacio interno alrededor del contenido del elemento será de 1 rem en la parte superior e inferior, y de 3 rem a la izquierda y a la derecha."*/
+  font-size: 1.8rem; /*"se utiliza para especificar el tamaño de la fuente del texto en un elemento, Esto permitiría que el tamaño del título sea más prominente en comparación con el texto del párrafo."*/
+  text-transform: uppercase; /*se utiliza para transformar el texto de un elemento en mayúsculas. Esto significa que cualquier texto dentro del elemento al que se aplica se mostrará en letras mayúsculas, independientemente de cómo esté escrito en el HTML.*/
+  font-weight: 700; /*se utiliza para definir el grosor del texto. En este caso, 700 corresponde a un peso de fuente más grueso, generalmente considerado como "negrita"*/
+  margin-bottom: 2rem; /*se utiliza para establecer un margen en la parte inferior de un elemento. Aquí, el valor de 2rem indica la cantidad de espacio que se dejará entre el elemento y el siguiente elemento en la dirección vertical*/
+  border: none;
+}
+@media (min-width: 768px) {
+  /* permite aplicar estilos específicos a un documento en función de ciertas condiciones, como el tamaño de la pantalla, la resolución, la orientación, entre otras. Esto es fundamental para el diseño responsivo, ya que permite que una página web se adapte a diferentes dispositivos, como móviles, tabletas y computadoras de escritorio.*/
+  .boton {
+    display: inline-block; /* Elemento que se alinea en línea pero permite dimensiones */
+  }
+}
+.boton:hover {
+  cursor: pointer; /*me permite crear la mor cuando me dirijo al boton de "Enviar"*/
+}
+.boton--primario {
+  background-color: var(--negro); /*color del boton "leer entrada"*/
+}
+.boton--secundario {
+  /*modificador*/
+  background-color: var(
+    --primario
+  ); /*color del boton cafe "--primario""leer entrada"*/
+}
+
+.cursos {
+  /*viñetas se emplea para organizar información de manera clara y concisa, utilizando símbolos como puntos o guiones. */
+  list-style: none; /* Elimina los puntos de la lista */
+}
+.widget-curso {
+  border-bottom: 1px solid var(--gris); /*me permite crear una linea delgada entre el boton de "ler entrada" y el siguiente parrafo*/
+  margin-bottom: 2rem;
+}
+.widget-curso:last-of-type {
+  /*tambien se le llama seudo selectores */ /*se utiliza para seleccionar el último elemento de un tipo específico dentro de un contenedor*/
+  border: none; /*no tendremos bordos*/
+  margin-bottom: 0;
+}
+.widget-cursos__label {
+  font-family: var(
+    --fuenteHeading
+  ); /*me permite cambiar elo estilo de las letras de los "precios cupos" */
+}
+.widget-curso__info {
+  font-weight: normal;
+}
+.widget-cursos__label,
+.widget-curso__info {
+  font-size: 2rem;
+}
+.footer {
+  /*es el contenedor de "blog de caffe" que se encuentra en la parte inferior de la pagina*/
+  background-color: var(
+    --negro
+  ); /*me permite darlo el color del fondo que tiene el contenedor "blog de caffe"*/
+  padding-bottom: 3rem 0; /*me permite crear un espacion entre la letra "blog de caffe " y bordo superior de la pagina*/
+  margin-top: 4rem;
+}
+
+/* sobre nosotros*/
+@media (min-width: 768px) {
+  .sobre-nosotros {
+    display: flex; /*me permite ubicar el lorem insun en la parte derecha de la imagen*/
+    gap: 2rem; /*me permite crear una separacion entre la imagen y la informacion*/
+    /*podemos desacartar "gap: 2rem;" y utilizar "justify-content: space-between;"*/
+  }
+
+  .sobre-nosotros__imagen,
+  .sobre-nosotros__texto {
+    flex-basis: 50%; /*tambien podemos utilizar "flex-basis: calc(50% - 1rem)"/*me permite que la imagen, como al texto tener la misma tamaño*/
+  }
+}
+/* esto se implmentaria si fuera con grid
+ .sobre-nosotros {
+  display: grid;
+  grid-template-columns:repeat(2. 1fr);
+  column-gap: 2rem;*/
+
+/*cursos*/
+.curso {
+  padding: 3rem 0; /*me permite saber que tanta separacion tengo la linea de la imagen */
+  border-bottom: 1px solid var(--gris); /*me permite tener una separacion de color gris sobre una de la imagenes*/
+}
+@media (min-width: 768px) {
+  .curso {
+    display: grid; /*me permite crear y observar los cuadros donde ubico la imagen y la informacion activando grid cuando inspecciono la pagina web */
+    grid-template-columns: 33.3% 67.7%; /*me permite dividir la imagen del informacion donde la imagen tiene el 33.3% de la pantalla  y la informacion el 67.7% de la pantalla  */
+    column-gap: 2rem; /*me permite crear la separacion entre la imagen y la informacion*/
+  }
+}
+.curso:last-of-type {
+  /*me permite retirarle la raya o "border" al ultimo bloque*/
+  border: none;
+}
+.cursos__label {
+  font-family: var(
+    --fuenteHeading
+  ); /*me permite cambiar elo estilo de las letras de los "precios cupos" */
+}
+.curso__info {
+  font-weight: normal;
+}
+.cursos__label,
+.curso__info {
+  font-size: 2rem;
+}
+
+/*contacto*/
+.contacto-bg {
+  background-image: url(../img/contacto.jpg); /*esta es la imagen que se muetsra en el bloque de contacto*/
+  height: 40rem; /*me permite crearle una altura*/
+  background-size: cover; /*se utiliza para ajustar el tamaño de una imagen de fondo de manera que cubra completamente el área del elemento al que está aplicada.*/
+  background-repeat: no-repeat; /*e utiliza para evitar que una imagen de fondo se repita en un elemento. Por defecto, las imágenes de fondo se repiten tanto horizontal como verticalmente para llenar el espacio disponible.*/
+}
+
+/*formulario*/
+
+.formulario {
+  background-color: var(--blanco);
+  margin: -5rem auto 0 auto; /*me permite rotar el formulario hacia cula sentido*/
+  width: 95%; /*me permite solo tomar el 95 % de la imagen*/
+  padding: 5rem; /*me permite crea una separacion entr el formulario y la imagen*/
+}
+.campo {
+  display: flex;
+  margin-bottom: 2rem; /*me permite crear una separacion entre "Nombre,e-mail y mensaje"*/
+  gap: 2rem; /*me permite crear una separacion entre NOMBRE Y la barra que que esta al aldo*/
+}
+.campo__label {
+  flex: 0 0 9rem; /*me permite tener un factor de crecimiento*/
+  text-align: right; /*me permite cambiar de posicion /*Nombre,E-maily Mensaje de iquierda a derecha*/
+}
+.campo__fiel {
+  flex: 1; /**/
+  border: 1px solid var(--gris); /*me permite cambiar la linear del recuadro donde lleva la infrmacion del cliente*/
+}
+.campo__fiel--textarea {
+  /*textarea me permite tene un modificador ya que es un poco mas graande*/
+  height: 20rem; /*me permite ampliar la casilla del mensja e de arriba asia abajo*/
+}
+
+/*los elemnetos de display se utilizan de la siguiente manera "La propiedad display en CSS determina cómo se comporta un elemento en el flujo del documento y cómo se presenta visualmente. Es fundamental para el diseño y la organización de la estructura de una página web. Aquí tienes un resumen de los valores más comunes de la propiedad display:
+
+Valores Comunes de display:
+block:
+
+El elemento ocupa toda la línea disponible.
+Comienza en una nueva línea.
+Se pueden establecer propiedades de ancho y alto.
+Ejemplos: <div>, <h1>, <p>.
+inline:
+
+El elemento solo ocupa el espacio necesario para su contenido.
+No comienza en una nueva línea.
+No se pueden establecer propiedades de ancho y alto.
+Ejemplos: <span>, <a>, <strong>.
+inline-block:
+
+Combina características de los elementos en línea y de bloque.
+Permite establecer ancho y alto.
+No comienza en una nueva línea y se alinea horizontalmente.
+Ejemplos: Se puede aplicar a cualquier elemento.
+flex:
+
+Se utiliza para crear un contenedor flexible que alinea sus elementos hijos de manera flexible.
+Permite un diseño responsivo y alineación fácil de los elementos.
+Ejemplo: <div style="display: flex;">.
+grid:
+
+Define un contenedor como un grid (rejilla) que organiza sus elementos en filas y columnas.
+Ofrece un control detallado sobre la disposición de los elementos.
+Ejemplo: <div style="display: grid;">.
+none:
+
+El elemento no se muestra en la página y no ocupa espacio en el flujo del documento.
+Puede ser útil para ocultar elementos dinámicamente.
+Ejemplo: element.style.display = 'none'; en JavaScript."*/
